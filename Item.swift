@@ -7,12 +7,5 @@
 
 import Foundation
 import SwiftData
-
-@Model
-final class Item {
-    var timestamp: Date
-    
-    init(timestamp: Date) {
-        self.timestamp = timestamp
-    }
-}
+import GoogleSignIn
+let sign_in_config = GIDConfiguration(clientID: "999981480769-chq34gahnpgkk42t0i4902pudjsif9ql.apps.googleusercontent.com")
