@@ -12,6 +12,8 @@ import SwiftData
 struct programprogramApp: App {
     @State var user_auth: UserAuthModel = UserAuthModel()
     @AppStorage("is_user_signed_in") var is_user_signed_in: Bool = false
+//    @Environment(\.modelContext) var all_my_events : MySDEvent
+    @Environment(\.modelContext) private var all_my_events
     
     var body: some Scene {
         WindowGroup {
@@ -28,6 +30,7 @@ struct programprogramApp: App {
                 print("Auth : \(user_auth.given_name) is \(user_auth.is_logged_in)")
             }
             .environmentObject(user_auth)
+            .modelContainer(for: MySDEvent.self)
         }
     }
 }

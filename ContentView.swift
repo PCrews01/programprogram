@@ -66,7 +66,22 @@ struct ContentView: View {
             }
         }
     }
+    
 }
 #Preview {
     ContentView()
+}
+
+extension UIImage {
+    var base_64: String? {
+        self.jpegData(compressionQuality: 1)?.base64EncodedString()
+    }
+}
+extension String {
+    var image_from_base_64: UIImage? {
+        guard let image_data = Data(base64Encoded: self, options: .ignoreUnknownCharacters) else {
+            return nil
+        }
+        return UIImage(data: image_data)
+    }
 }
